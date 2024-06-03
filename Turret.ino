@@ -15,12 +15,12 @@ Pixy2 pixy;
 class PController {
   public:
     float m_kp;
-    bool m_isX;
+    bool m_is_x;
 
-    PController(float kp, bool isX) : m_kp(kp), m_isX(isX) {}
+    PController(float kp, bool is_x) : m_kp(kp), m_is_x(is_x) {}
 
     float calculate(int position) {
-      float setpoint = m_isX ? CENTER_X : CENTER_Y;
+      float setpoint = m_is_x ? CENTER_X : CENTER_Y;
       return m_kp * (setpoint - position);      
     }
 };
