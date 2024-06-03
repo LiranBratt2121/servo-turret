@@ -10,6 +10,9 @@ const int SERVO_MAX = 180;
 const int SERVO_X_PIN = 9;
 const int SERVO_Y_PIN = 10;
 
+const float P_X_GAIN = 0.1;
+const float P_Y_GAIN = 0.1;
+
 Pixy2 pixy;
 
 class PController {
@@ -31,7 +34,7 @@ class Turret {
     PController m_controller_x, m_controller_y;
 
   public:
-    Turret() : m_controller_x(0.1, true), m_controller_y(0.1, false) {
+    Turret() : m_controller_x(P_X_GAIN, true), m_controller_y(P_Y_GAIN, false) {
       m_servo_x.attach(SERVO_X_PIN);
       m_servo_y.attach(SERVO_Y_PIN);
     }
